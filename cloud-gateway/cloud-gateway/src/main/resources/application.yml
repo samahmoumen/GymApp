@@ -1,0 +1,55 @@
+spring:
+  zipkin:
+    base-url: http://localhost:9411/
+
+  cloud:
+    gateway:
+      routes:
+        - id: membership
+          uri: lb://membership
+          predicates:
+            - Path=/membership/**
+
+
+        - id: payment
+          uri: lb://payment
+          predicates:
+            - Path=/payment/**
+
+
+        - id: members
+          uri: lb://members
+          predicates:
+            - Path=/members/**
+
+
+        - id: member-class
+          uri: lb://member-class
+          predicates:
+            - Path=/member-classes/**
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "https://localhost:3000"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+  application:
+    name: GATEWAY-SERVICE
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+server:
+  port: 8091
+
