@@ -15,5 +15,13 @@
         <module>payment/payment</module>
         <module>service-registry/service-registry</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+        </repository>
+    </distributionManagement>
+
 </project>
 
