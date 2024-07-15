@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/cloud-gateway/cloud-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/service-registry/service-registry/pom.xml" />
         <option value="$PROJECT_DIR$/members/members/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
