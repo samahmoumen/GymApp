@@ -30,14 +30,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: static-site
-      - name: Archive site content
-        uses: thedoctor0/zip-release@master
-        with:
-          filename: site.zip
       - name: Check out code
         uses: actions/checkout@v2
 
