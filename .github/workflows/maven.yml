@@ -29,6 +29,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
+            image: samahmn98/gymapp-images
+            registry: docker-compose
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
 
