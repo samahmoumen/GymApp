@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>cloud-gateway</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>cloud-gateway</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -68,6 +67,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 
 
 			</plugin>

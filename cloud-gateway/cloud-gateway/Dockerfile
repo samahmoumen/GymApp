@@ -1,5 +1,4 @@
 FROM openjdk:21
-
-COPY target/*.jar app.jar
-
-ENTRYPOINT ["java", "-jar","/app.jar"]
+EXPOSE 8080
+COPY cloud-gateway/cloud-gateway/target/cloud-gateway-0.0.1-SNAPSHOT.jar cloud-gateway.jar
+ENTRYPOINT ["java", "-jar", "/cloud-gateway.jar"]
