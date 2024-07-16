@@ -39,8 +39,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          tag_name: v1.0.4
-          release_name: Release v1.0.4
+          tag_name: v1.0.5
+          release_name: Release v1.0.5
           draft: false
 
   deploy:
@@ -57,14 +57,16 @@ jobs:
           java-version: '21'
           distribution: 'adopt'
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      - name: Build Docker image
-        run: docker build -t my-app:${{ github.sha }} .
-
-      - name: Push Docker image
-        run: docker push my-app:${{ github.sha }}
+      - name: Build and push Docker images with Docker Compose
+        run: |
+          docker-compose -f docker-compose.yml build
+          docker-compose -f docker-compose.yml push
 
       - name: Start Minikube
         run: |
@@ -74,6 +76,6 @@ jobs:
         run: |
           kubectl config use-context minikube
 
-      - name: Update Kubernetes manifests
+      - name: Deploy to Kubernetes
         run: |
-          kubectl set image deployment/my-app my-app=my-app:${{ github.sha }}
+          kubectl apply -f k8s/deployment.yaml
