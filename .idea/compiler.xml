@@ -21,7 +21,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="cloud-gateway" options="" />
+      <module name="cloud-gateway" options="-parameters" />
       <module name="member-class" options="-parameters" />
       <module name="member2" options="-parameters" />
       <module name="members" options="-parameters" />
