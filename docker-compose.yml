@@ -8,42 +8,42 @@ services:
   cloud-gateway:
     build:
       context: ./cloud-gateway/cloud-gateway
-      dockerfile: Dockerfile
+      dockerfile: cloud-gateway/Dockerfile
     image: cloud-gateway:latest
     ports:
       - "8091:8091"
   membership:
     build:
       context: ./membership/membership
-      dockerfile: Dockerfile
+      dockerfile: membership/Dockerfile
     image: membership:latest
     ports:
       - "8089:8089"
   payment:
     build:
       context: ./payment/payment
-      dockerfile: Dockerfile
+      dockerfile: payment/Dockerfile
     image: payment:latest
     ports:
       - "8090:8090"
   members:
     build:
       context: ./members/members
-      dockerfile: Dockerfile
+      dockerfile: members/Dockerfile
     image: members:latest
     ports:
       - "8092:8092"
   member-class:
     build:
       context: ./member-class/member-class
-      dockerfile: Dockerfile
+      dockerfile: member-class/Dockerfile
     image: member-class:latest
     ports:
       - "8088:8088"
   service-registry:
     build:
       context: ./service-registry/service-registry
-      dockerfile: Dockerfile
+      dockerfile: service-registry/Dockerfile
     image: service-registry:latest
     ports:
       - "8761:8761"
