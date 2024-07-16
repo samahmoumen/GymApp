@@ -39,8 +39,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          tag_name: v1.0.9
-          release_name: Release v1.0.9
+          tag_name: v1.1.0
+          release_name: Release v1.1.0
           draft: false
 
   deploy:
