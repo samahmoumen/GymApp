@@ -1,0 +1,145 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-gateway
+  template:
+    metadata:
+      labels:
+        app: cloud-gateway
+    spec:
+      containers:
+        - name: cloud-gateway
+          image: cloud-gateway:latest
+          ports:
+            - containerPort: 8091
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: membership
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: membership
+  template:
+    metadata:
+      labels:
+        app: membership
+    spec:
+      containers:
+        - name: membership
+          image: membership:latest
+          ports:
+            - containerPort: 8089
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment
+  template:
+    metadata:
+      labels:
+        app: payment
+    spec:
+      containers:
+        - name: payment
+          image: payment:latest
+          ports:
+            - containerPort: 8090
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: members
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: members
+  template:
+    metadata:
+      labels:
+        app: members
+    spec:
+      containers:
+        - name: members
+          image: members:latest
+          ports:
+            - containerPort: 8092
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: member-class
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: member-class
+  template:
+    metadata:
+      labels:
+        app: member-class
+    spec:
+      containers:
+        - name: member-class
+          image: member-class:latest
+          ports:
+            - containerPort: 8088
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-registry
+  template:
+    metadata:
+      labels:
+        app: service-registry
+    spec:
+      containers:
+        - name: service-registry
+          image: service-registry:latest
+          ports:
+            - containerPort: 8761
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zipkin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zipkin
+  template:
+    metadata:
+      labels:
+        app: zipkin
+    spec:
+      containers:
+        - name: zipkin
+          image: openzipkin/zipkin
+          ports:
+            - containerPort: 9411
