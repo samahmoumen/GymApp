@@ -9,42 +9,42 @@ services:
     build:
       context: ./cloud-gateway/cloud-gateway
       dockerfile: Dockerfile
-    image: samahmn98/cloud-gateway:latest
+    image: cloud-gateway:latest
     ports:
       - "8091:8091"
   membership:
     build:
       context: ./membership/membership
       dockerfile: Dockerfile
-    image: samahmn98/membership:latest
+    image: membership:latest
     ports:
       - "8089:8089"
   payment:
     build:
       context: ./payment/payment
       dockerfile: Dockerfile
-    image: samahmn98/payment:latest
+    image: payment:latest
     ports:
       - "8090:8090"
   members:
     build:
       context: ./members/members
       dockerfile: Dockerfile
-    image: samahmn98/members:latest
+    image: members:latest
     ports:
       - "8092:8092"
   member-class:
     build:
       context: ./member-class/member-class
       dockerfile: Dockerfile
-    image: samahmn98/member-class:latest
+    image: member-class:latest
     ports:
       - "8088:8088"
   service-registry:
     build:
       context: ./service-registry/service-registry
       dockerfile: Dockerfile
-    image: samahmn98/service-registry:latest
+    image: service-registry:latest
     ports:
       - "8761:8761"
 
